@@ -25,7 +25,7 @@
   type Exporter = (context: CanvasRenderingContext2D, image: HTMLImageElement) => () => void;
 
   const getFileName = (extension: string) =>
-    `mermaid-diagram-${dayjs().format('YYYY-MM-DD-HHmmss')}.${extension}`;
+    `diagram-${dayjs().format('YYYY-MM-DD-HHmmss')}.${extension}`;
 
   /**
    * Fix text clipping in exported SVG for hand-drawn (rough) mode.
@@ -308,6 +308,7 @@ ${svgString}`);
       isVisible={!!urls.current.mdCode}>
       <CopyInput value={urls.current.mdCode} label="Copy Markdown" testID={TID.copyMarkdown} />
     </ExternalLinkWrapper>
+    <CopyInput value={urls.current.mdCodeAdo} label="Copy ADO Markdown" />
     <div class="flex w-full items-center gap-2">
       <Input type="url" bind:value={gistURL} placeholder="Enter Gist URL" />
       <Button onclick={loadGist}>Load Gist</Button>

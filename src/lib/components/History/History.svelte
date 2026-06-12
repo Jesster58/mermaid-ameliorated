@@ -64,7 +64,7 @@
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `mermaid-history-${dayjs().format('YYYY-MM-DD-HHmmss')}.json`;
+    a.download = `history-${dayjs().format('YYYY-MM-DD-HHmmss')}.json`;
     a.click();
     URL.revokeObjectURL(url);
     logEvent('history', { action: 'download' });

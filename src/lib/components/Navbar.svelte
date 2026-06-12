@@ -10,32 +10,14 @@
 <script lang="ts">
   import { resolve } from '$app/paths';
   import MainMenu from '$/components/MainMenu.svelte';
-  import { Separator } from '$/components/ui/separator';
-  import { type ComponentProps, type Snippet } from 'svelte';
-  import GithubIcon from '~icons/mdi/github';
-  import DropdownNavMenu from './DropdownNavMenu.svelte';
+  import type { Snippet } from 'svelte';
 
   interface Props {
     mobileToggle?: Snippet;
     children: Snippet;
-    hidePromotion?: boolean;
   }
 
   let { children, mobileToggle }: Props = $props();
-
-  type Links = ComponentProps<typeof DropdownNavMenu>['links'];
-
-  const githubLinks: Links = [
-    { title: 'Mermaid JS', href: 'https://github.com/mermaid-js/mermaid' },
-    {
-      title: 'Mermaid Live Editor',
-      href: 'https://github.com/mermaid-js/mermaid-live-editor'
-    },
-    {
-      title: 'Mermaid CLI',
-      href: 'https://github.com/mermaid-js/mermaid-cli'
-    }
-  ];
 </script>
 
 <nav class="z-50 flex p-4 sm:p-6">
@@ -51,8 +33,6 @@
   <div
     id="menu"
     class="hidden flex-nowrap items-center justify-between gap-3 overflow-hidden md:flex">
-    <DropdownNavMenu icon={GithubIcon} links={githubLinks} />
-    <Separator orientation="vertical" />
     {@render children()}
   </div>
   {@render mobileToggle?.()}

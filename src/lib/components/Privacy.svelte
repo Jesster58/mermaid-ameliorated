@@ -22,43 +22,20 @@
         </Dialog.Title>
       </Dialog.Header>
 
-      {#if true}
-        <p class="text-xl font-semibold">Your diagrams never leave your browser.</p>
-        <p>They're only stored in the URL and your browser's local storage.</p>
-        <p>
-          This is a fully open source, client-side app deployed on <a
-            href="https://github.com/mermaid-js/mermaid-live-editor/deployments"
-            class="underline"
-            target="_blank">GitHub Pages</a>
-          that works offline as a
-          <a href="https://web.dev/explore/progressive-web-apps" target="_blank"
-            >Progressive Web App</a
-          >.
+      <p class="text-xl font-semibold">Your diagrams never leave your browser.</p>
+      <p>They're only stored in the URL and your browser's local storage.</p>
+      <p>
+        This is a fully open source, client-side app that works offline as a
+        <a href="https://web.dev/explore/progressive-web-apps" target="_blank"
+          >Progressive Web App</a
+        >.
+      </p>
+      <ExternalLinkWrapper domain="example.com" isVisible>
+        <p class="text-left">
+          External services (PNG/SVG/Kroki exports, etc.) will share your diagram with those 3rd
+          parties, and are highlighted in the UI on hover.
         </p>
-        <p>
-          We use self hosted, privacy-friendly Plausible Analytics to collect anonymous usage
-          metadata (diagram types, feature usage, etc.). All data is <a
-            href="https://p.mermaid.live/mermaid.live"
-            class="underline"
-            target="_blank">publicly available</a
-          >.
-        </p>
-        <ExternalLinkWrapper domain="example.com" isVisible>
-          <p class="text-left">
-            External services (PNG/SVG/Kroki exports, etc.) will share your diagram with those 3rd
-            parties, and are highlighted in the UI on hover.
-          </p>
-        </ExternalLinkWrapper>
-      {:else}
-        <p>No privacy policy has been configured for this deployment.</p>
-        <p>
-          If you are self-hosting the Mermaid Live Editor, set the
-          <code class="rounded bg-muted px-1.5 py-0.5 text-sm">MERMAID_PRIVACY_POLICY_URL</code>
-          environment variable at build time to link to your privacy policy, or set
-          <code class="rounded bg-muted px-1.5 py-0.5 text-sm">MERMAID_HIDE_PRIVACY_POLICY</code>
-          to <code class="rounded bg-muted px-1.5 py-0.5 text-sm">true</code> to hide this button.
-        </p>
-      {/if}
+      </ExternalLinkWrapper>
     </Dialog.Content>
   </Dialog.Root>
 {/if}
