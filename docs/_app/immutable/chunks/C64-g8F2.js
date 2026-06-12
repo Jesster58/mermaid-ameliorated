@@ -1,0 +1,1 @@
+import{a as e}from"./De9uGZY3.js";var t=0;function n(n){var r=++t;return e(n)+r}export{n as t};

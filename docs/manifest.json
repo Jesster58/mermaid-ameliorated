@@ -1,0 +1,18 @@
+{
+"short_name": "Mermaid Ameliorated",
+"name": "Mermaid Ameliorated",
+	"icons": [
+		{
+			"src": "/favicon.svg",
+			"type": "image/svg+xml",
+			"sizes": "any"
+		}
+	],
+	"start_url": "/edit",
+	"background_color": "#0C0C0C",
+	"display": "standalone",
+	"scope": "/edit",
+	"theme_color": "#0C0C0C",
+	"description": "Edit and preview diagrams in real time.",
+	"orientation": "natural"
+}
