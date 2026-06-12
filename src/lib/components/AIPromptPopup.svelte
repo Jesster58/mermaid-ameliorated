@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { Button } from '$/components/ui/button';
   import { cn } from '$lib/utils.js';
   import CloseIcon from '~icons/material-symbols/close-rounded';
 
@@ -71,7 +70,7 @@
   <div
     bind:this={container}
     class={cn(
-      'button-container-for-animation relative z-50 mr-6 flex w-auto flex-col gap-2 rounded-xl border-2 border-border bg-background p-2 shadow-xl dark:border-border-dark dark:bg-secondary',
+      'button-container-for-animation relative z-50 mr-6 flex w-auto flex-col gap-2 rounded border-2 border-border bg-background p-2 shadow-xl dark:border-border-dark dark:bg-secondary',
       !input.trim() && 'rainbow-border'
     )}
     role="dialog"
@@ -91,14 +90,12 @@
         }}
         placeholder="Describe what to add or change"
         rows="1"
-        class="focus font-recursive min-h-0 flex-1 resize-none border-none bg-transparent px-1 text-sm font-normal text-foreground placeholder:text-muted-foreground focus:ring-0 focus:outline-none disabled:opacity-50 dark:text-foreground dark:placeholder:text-muted-foreground"
+        class="focus min-h-0 flex-1 resize-none border-none bg-transparent px-1 text-sm font-normal text-foreground placeholder:text-muted-foreground focus:ring-0 focus:outline-none disabled:opacity-50 dark:text-foreground dark:placeholder:text-muted-foreground"
         style="height: 20px; overflow-y: hidden;"></textarea>
       <button onclick={onClose} class="text-muted-foreground hover:text-foreground">
         <CloseIcon class="size-4" />
       </button>
     </div>
-
-
   </div>
 {/if}
 

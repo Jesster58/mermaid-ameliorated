@@ -46,7 +46,7 @@
 
 <div
   class={[
-    'card flex h-fit flex-col overflow-hidden rounded-2xl border-2 border-muted',
+    'card flex h-fit flex-col overflow-hidden rounded border-2 border-muted',
     isOpen && 'isOpen flex-grow',
     isStackable ? 'flex-1 group-has-[.isOpen]:w-full group-has-[.isOpen]:flex-none' : 'w-full'
   ]}>
