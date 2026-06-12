@@ -2,7 +2,6 @@
   import ExternalLinkWrapper from '$/components/ExternalLinkWrapper.svelte';
   import * as Dialog from '$/components/ui/dialog';
   import { env } from '$/util/env';
-  import { isOnMermaidLive } from '$/util/migration/domainMigration';
   import ShieldIcon from '~icons/material-symbols/shield-lock-outline-rounded';
 </script>
 
@@ -23,7 +22,7 @@
         </Dialog.Title>
       </Dialog.Header>
 
-      {#if isOnMermaidLive()}
+      {#if true}
         <p class="text-xl font-semibold">Your diagrams never leave your browser.</p>
         <p>They're only stored in the URL and your browser's local storage.</p>
         <p>
@@ -46,9 +45,8 @@
         </p>
         <ExternalLinkWrapper domain="example.com" isVisible>
           <p class="text-left">
-            External services (PNG/SVG/Kroki exports, "Save to Mermaid Chart", "Repair with AI",
-            etc) will share your diagram with those 3rd parties, and are highlighted in the UI on
-            hover.
+            External services (PNG/SVG/Kroki exports, etc.) will share your diagram with those 3rd
+            parties, and are highlighted in the UI on hover.
           </p>
         </ExternalLinkWrapper>
       {:else}

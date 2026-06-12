@@ -1,18 +1,18 @@
 {
-	"short_name": "Mermaid",
-	"name": "Mermaid Live Editor",
+	"short_name": "Diagram Editor",
+	"name": "Diagram Editor",
 	"icons": [
 		{
-			"src": "/favicon.png",
-			"type": "image/png",
-			"sizes": "512x512"
+			"src": "/favicon.svg",
+			"type": "image/svg+xml",
+			"sizes": "any"
 		}
 	],
 	"start_url": "/edit",
-	"background_color": "#ff3670",
+	"background_color": "#1e1e2e",
 	"display": "standalone",
 	"scope": "/edit",
-	"theme_color": "#ff3670",
-	"description": "FlowChart & Diagrams Editor.",
+	"theme_color": "#1e1e2e",
+	"description": "Edit and preview diagrams in real time.",
 	"orientation": "natural"
 }

@@ -10,7 +10,4 @@ export const TID = {
 } as const;
 
 export const C = {
-  aiLiveEditor: 'ai_live_editor',
-  editorChooserDismissedKey: 'mermaid-editor-chooser-dismissed',
-  utmSource: 'mermaid_live_editor'
 } as const;

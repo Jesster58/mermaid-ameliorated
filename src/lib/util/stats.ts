@@ -97,7 +97,7 @@ const delaysPerEvent = {
   history: defaultDelay,
   loadGist: defaultDelay,
   loadSampleDiagram: defaultDelay,
-  mermaidChartClick: noDelay,
+
   migration: defaultDelay,
   mobileViewToggle: defaultDelay,
   pwaInstalled: defaultDelay,
@@ -131,6 +131,4 @@ export const logEvent = (
   );
 };
 
-export const logMermaidChartClick = (source: string): void => {
-  logEvent('mermaidChartClick', { source });
-};
+

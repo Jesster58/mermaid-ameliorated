@@ -2,7 +2,6 @@
   import type { EditorProps } from '$/types';
   import { env } from '$/util/env';
   import { urls, validatedState } from '$/util/state.svelte';
-  import { logMermaidChartClick } from '$/util/stats';
   import { AIPromptViewZoneManager } from '$lib/util/AIPromptViewZoneManager';
   import { initEditor } from '$lib/util/monacoExtra';
   import { errorDebug } from '$lib/util/util';
@@ -241,12 +240,6 @@
       onHeightChange={(height) => aiPromptManager.updateHeight(height)}
       onClose={closePopup}
       onTryFree={() => {
-        logMermaidChartClick('vibeDiagramming');
-        window.open(
-          urls.current.mermaidChart({ medium: 'vibe_diagramming' }).save,
-          '_blank',
-          'noopener'
-        );
         closePopup();
       }} />
   </div>
