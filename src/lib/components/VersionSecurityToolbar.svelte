@@ -6,7 +6,7 @@
   import { TID } from '$/constants';
   import { env } from '$/util/env';
   import { version } from 'mermaid/package.json';
-  import { mode, setMode } from 'mode-watcher';
+  import { cycleTheme, getTheme } from '$/util/theme.svelte';
   import ThemeIcon from './ThemeIcon.svelte';
 </script>
 
@@ -23,9 +23,9 @@
     variant="ghost"
     size="icon"
     data-testid={TID.themeToggleButton}
-    title="Switch to {mode.current === 'dark' ? 'light' : 'dark'} theme"
+    title="Theme: {getTheme().label}"
     class="[&_svg]:size-5"
-    onclick={() => setMode(mode.current === 'dark' ? 'light' : 'dark')}>
+    onclick={cycleTheme}>
     <ThemeIcon />
   </Button>
 </FloatingToolbar>

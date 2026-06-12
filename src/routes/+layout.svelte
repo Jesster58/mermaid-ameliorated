@@ -3,8 +3,8 @@
   import { loadingState } from '$/util/loading.svelte';
   import { toggleDarkTheme } from '$/util/state.svelte';
   import { initHandler } from '$/util/util';
+  import { getTheme, initTheme } from '$/util/theme.svelte';
   import { base } from '$app/paths';
-  import { mode, ModeWatcher } from 'mode-watcher';
   import { onMount, type Snippet } from 'svelte';
   import '../app.css';
 
@@ -33,12 +33,15 @@
     }
   });
 
+  onMount(() => {
+    initTheme();
+  });
+
   $effect(() => {
-    toggleDarkTheme(mode.current === 'dark');
+    toggleDarkTheme(getTheme().dark);
   });
 </script>
 
-<ModeWatcher />
 <Toaster />
 
 <main class="h-dvh">

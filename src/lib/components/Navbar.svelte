@@ -25,9 +25,9 @@
     <MainMenu />
     <a href={resolve('/', {})} class="whitespace-nowrap text-accent">
       {#if !mobileToggle}
-        Diagram
+        Mermaid
       {/if}
-      Editor
+      Ameliorated
     </a>
   </div>
   <div

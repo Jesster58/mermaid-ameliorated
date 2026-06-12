@@ -1,17 +1,16 @@
 <script lang="ts">
   import * as Popover from '$/components/ui/popover';
-  import { Switch } from '$/components/ui/switch';
   import { env } from '$/util/env';
   import { urls } from '$/util/state.svelte';
   import { cn } from '$/utils';
-  import { mode, setMode } from 'mode-watcher';
+  import { themes, getTheme, setTheme } from '$/util/theme.svelte';
   import type { Component, Snippet } from 'svelte';
   import AddIcon from '~icons/material-symbols/add-2-rounded';
   import BookIcon from '~icons/material-symbols/book-2-outline-rounded';
   import DuplicateIcon from '~icons/material-symbols/content-copy-outline-rounded';
-  import ContrastIcon from '~icons/material-symbols/contrast';
   import MenuIcon from '~icons/material-symbols/menu-rounded';
   import CommunityIcon from '~icons/material-symbols/person-play-outline-rounded';
+  import PaletteIcon from '~icons/material-symbols/styler-outline-rounded';
 
   interface MenuItem {
     label: string;
@@ -42,10 +41,10 @@
     },
     {
       href: '#',
-      icon: ContrastIcon,
+      icon: PaletteIcon,
       isSectionEnd: true,
-      label: 'Dark Mode',
-      renderer: darkModeMenuItem
+      label: 'Theme',
+      renderer: themeMenuItem
     }
   ]);
 </script>
@@ -65,20 +64,22 @@
   </a>
 {/snippet}
 
-{#snippet darkModeMenuItem(options: Omit<MenuItem, 'renderer'>)}
+{#snippet themeMenuItem(options: Omit<MenuItem, 'renderer'>)}
   <div
     class={cn(
-      'flex cursor-pointer items-center justify-between border-b-2 px-3 py-2 hover:bg-muted',
+      'flex flex-col border-b-2 px-3 py-2',
       options.isSectionEnd && 'border-border-dark',
       options.class
     )}>
-    <span class="flex items-center gap-2">
-      <ContrastIcon />
-      Dark Mode
-    </span>
-    <Switch
-      checked={mode.current === 'dark'}
-      onCheckedChange={(dark) => setMode(dark ? 'dark' : 'light')} />
+    <span class="mb-1 flex items-center gap-2 text-xs opacity-60">Theme</span>
+    {#each themes as theme (theme.id)}
+      <button
+        class="flex w-full items-center gap-2 rounded px-1 py-1 text-left hover:bg-muted"
+        class:bg-muted={getTheme().id === theme.id}
+        onclick={() => setTheme(theme.id)}>
+        {theme.label}
+      </button>
+    {/each}
   </div>
 {/snippet}
 

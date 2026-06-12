@@ -1,9 +1,12 @@
 <script lang="ts">
-  import { mode } from 'mode-watcher';
+  import { getTheme } from '$/util/theme.svelte';
   import { cubicInOut } from 'svelte/easing';
   import { type TransitionConfig } from 'svelte/transition';
   import MoonIcon from '~icons/material-symbols/dark-mode-outline-rounded';
   import SunIcon from '~icons/material-symbols/light-mode-outline-rounded';
+  import ObsidianIcon from '~icons/material-symbols/bedtime-outline-rounded';
+  import DeepBlackIcon from '~icons/material-symbols/dark-mode-rounded';
+  import MonoIcon from '~icons/material-symbols/contrast';
 
   const spin = (
     node: Element,
@@ -21,19 +24,27 @@
       `
     };
   };
+
+  const iconForTheme = (id: string) => {
+    switch (id) {
+      case 'light':
+        return SunIcon;
+      case 'dark':
+        return MoonIcon;
+      case 'obsidian':
+        return ObsidianIcon;
+      case 'deep-black':
+        return DeepBlackIcon;
+      case 'mono-industrial':
+        return MonoIcon;
+      default:
+        return MoonIcon;
+    }
+  };
 </script>
 
-<div class="inline-grid">
-  {#key mode.current}
-    <div
-      in:spin={{ clockWise: true }}
-      out:spin={{ clockWise: false }}
-      class="col-start-1 row-start-1">
-      {#if mode.current === 'dark'}
-        <MoonIcon />
-      {:else}
-        <SunIcon />
-      {/if}
-    </div>
-  {/key}
-</div>
+{#key getTheme().id}
+  <div in:spin={{ clockWise: true }} out:spin={{ clockWise: false }}>
+    <svelte:component this={iconForTheme(getTheme().id)} />
+  </div>
+{/key}
